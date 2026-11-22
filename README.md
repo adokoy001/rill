@@ -88,3 +88,7 @@ Python 3、curl 8.14.1を基準とする参照CLI、OpenSSL CLIを使用しま�
 GitHub Actions用のワークフローはpush・pull requestで `verification/verify.sh` を呼び、整形、単体テスト、Clippy、結合テスト、形式検証、誤変更の検出、依存監査を行います。同じスクリプトをローカルでも実行できます。配布バイナリを置く `dist/` はGitの追跡対象から外しています。
 
 curl側の仕様は [curl man page](https://curl.se/docs/manpage.html) と [機能一覧](https://curl.se/docs/features.html) を参照してください。配布ZIP内の依存ライブラリの通知は `dist/linux-x86_64/THIRD-PARTY-NOTICES.txt` と `dist/linux-x86_64/rust-std-notices.html` に収録しています。
+
+## ライセンス
+
+rill本体のソースコードと実行ファイル（v0.3.0を含む）は [MIT License](LICENSE) で提供します。依存ライブラリとRust標準ライブラリには、それぞれのライセンスが適用されます。
