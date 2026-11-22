@@ -1,0 +1,34 @@
+ok known/exact
+ok known/oversized
+ok known/suffix
+ok chunked/exact
+ok chunked/oversized
+ok close/exact
+ok close/oversized
+ok zero resets limit
+ok HEAD ignores hypothetical body
+ok write-out independent of limit
+ok reject invalid size
+ok atomic needs file
+ok atomic refuses stdout
+ok publish new file
+ok publish over existing file
+ok publish empty file
+ok HTTP error is data by default
+ok fail keeps old file
+ok fail-with-body rolls back
+ok partial response rolls back
+ok timeout rolls back
+ok headers and body roll back
+ok known oversize keeps destination absent
+ok unknown oversize keeps destination absent
+ok redirect rejection rolls back headers
+ok write-out is separate stream
+ok private file permissions
+ok symlink rejected
+ok special file rejected
+ok failed write-out rolls back
+ok concurrent readers see only old or completed versions
+ok target changed to symlink
+ok process killed before commit
+PASS 33 download cases

@@ -1,0 +1,19 @@
+[package]
+name = "rill"
+version = "0.3.0"
+edition = "2021"
+publish = false
+description = "A small curl-style HTTP client for shell scripts"
+
+[dependencies]
+tempfile = "3.27"
+ureq = { version = "3.5.2", default-features = false, features = ["rustls"] }
+fluent-uri = { version = "0.4", default-features = false, features = ["std"] }
+rustls = { version = "0.23", default-features = false }
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true

@@ -1,0 +1,62 @@
+Kani Rust Verifier 0.68.0 (standalone)
+CBMC 6.11.0
+warning: use of an unstable feature
+ --> <crate attribute>:1:12
+  |
+1 | #![feature(register_tool)]
+  |            ^^^^^^^^^^^^^
+  |
+  = note: requested on the command line with `--force-warn unstable-features`
+
+warning: 1 warning emitted
+
+Checking harness policy::download_prefix_conserves_budget...
+
+VERIFICATION RESULT:
+ ** 0 of 36 failed
+
+VERIFICATION:- SUCCESSFUL
+Verification Time: 0.13383704s
+
+Checking harness policy::budget_matches_mathematical_sum...
+
+VERIFICATION RESULT:
+ ** 0 of 19 failed
+
+VERIFICATION:- SUCCESSFUL
+Verification Time: 0.091455035s
+
+Checking harness policy::all_and_only_permitted_steps_succeed...
+
+VERIFICATION RESULT:
+ ** 0 of 29 failed
+
+VERIFICATION:- SUCCESSFUL
+Verification Time: 0.09218264s
+
+Checking harness policy::every_accepted_step_preserves_invariants...
+
+VERIFICATION RESULT:
+ ** 0 of 30 failed
+
+VERIFICATION:- SUCCESSFUL
+Verification Time: 0.2573401s
+
+Checking harness policy::initial_request...
+
+VERIFICATION RESULT:
+ ** 0 of 4 failed
+
+VERIFICATION:- SUCCESSFUL
+Verification Time: 0.0421835s
+
+Checking harness policy::classify_every_http_status...
+
+VERIFICATION RESULT:
+ ** 0 of 34 failed
+
+VERIFICATION:- SUCCESSFUL
+Verification Time: 0.045185126s
+
+Manual Harness Summary:
+Complete - 6 successfully verified harnesses, 0 failures, 6 total.

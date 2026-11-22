@@ -1,0 +1,9 @@
+
+running 4 tests
+test cli::tests::size_units_and_boundaries ... ok
+test transfer::tests::invalid_destinations_are_rejected ... ok
+test transfer::tests::ipv6_relative_reference_preserves_origin ... ok
+test transfer::tests::origin_uses_effective_port_and_ascii_case ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
