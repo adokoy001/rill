@@ -2,7 +2,7 @@ name: Publish rill 0.3.0
 on:
   push:
     branches: [distribution/v0.3.0]
-    paths: ['.github/workflows/publish.yml', 'rill-0.3.0.zip', 'SHA256SUMS', 'RELEASE.md']
+    paths: ['.github/workflows/publish.yml', 'rill-0.3.0.zip', 'SHA256SUMS', 'RELEASE.md', 'LICENSE']
 permissions: {}
 jobs:
   publish:
@@ -23,7 +23,17 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create v0.3.0 rill-0.3.0.zip SHA256SUMS \
-            --repo "$GITHUB_REPOSITORY" \
-            --target a6ef80eb32cd46d3dc92e602a4ade85cb9bb6f92 \
-            --title 'rill 0.3.0' --notes-file RELEASE.md
+          if gh release view v0.3.0 --repo "$GITHUB_REPOSITORY" > /dev/null; then
+            asset_digest=$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/v0.3.0" --jq '.assets[] | select(.name == "LICENSE") | .digest')
+            if [ -z "$asset_digest" ]; then
+              gh release upload v0.3.0 LICENSE --repo "$GITHUB_REPOSITORY"
+            else
+              test "$asset_digest" = "sha256:$(sha256sum LICENSE | cut -d ' ' -f 1)"
+            fi
+            gh release edit v0.3.0 --repo "$GITHUB_REPOSITORY" --notes-file RELEASE.md
+          else
+            gh release create v0.3.0 rill-0.3.0.zip SHA256SUMS LICENSE \
+              --repo "$GITHUB_REPOSITORY" \
+              --target a6ef80eb32cd46d3dc92e602a4ade85cb9bb6f92 \
+              --title 'rill 0.3.0' --notes-file RELEASE.md
+          fi

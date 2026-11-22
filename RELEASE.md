@@ -9,3 +9,5 @@ sha256sum -c SHA256SUMS
 unzip rill-0.3.0.zip
 ./rill-0.3.0/dist/linux-x86_64/rill --version
 ```
+
+**ライセンス**　rill v0.3.0本体のソースコードと実行ファイルは [MIT License](https://github.com/adokoy001/rill/releases/download/v0.3.0/LICENSE) で提供します。配布ZIPに対応するライセンス本文は、下の Assets から `LICENSE` としてダウンロードできます。依存ライブラリとRust標準ライブラリのライセンス通知はZIPに同梱しています。
