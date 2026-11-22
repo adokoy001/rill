@@ -1,0 +1,29 @@
+name: Publish rill 0.3.0
+on:
+  push:
+    branches: [distribution/v0.3.0]
+    paths: ['.github/workflows/publish.yml', 'rill-0.3.0.zip', 'SHA256SUMS', 'RELEASE.md']
+permissions: {}
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - name: Verify the distribution
+        run: |
+          echo '198b9a8fcb7a848dee0d6cb04c788140db98c48e8743500f9148eb2d19d6e120  rill-0.3.0.zip' | cmp - SHA256SUMS
+          sha256sum --check SHA256SUMS
+          unzip -tq rill-0.3.0.zip
+      - name: Publish the verified archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create v0.3.0 rill-0.3.0.zip SHA256SUMS \
+            --repo "$GITHUB_REPOSITORY" \
+            --target a6ef80eb32cd46d3dc92e602a4ade85cb9bb6f92 \
+            --title 'rill 0.3.0' --notes-file RELEASE.md

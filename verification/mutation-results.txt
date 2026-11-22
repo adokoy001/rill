@@ -1,7 +1,0 @@
-detected: forget to debit a received chunk [download_prefix_conserves_budget]
-detected: restore removed headers [every_accepted_step_preserves_invariants]
-detected: lose replay restriction [every_accepted_step_preserves_invariants]
-detected: allow a downgrade [every_accepted_step_preserves_invariants]
-detected: saturate an overflowing byte counter [budget_matches_mathematical_sum]
-detected: reject all redirects [all_and_only_permitted_steps_succeed]
-PASS 6 negative controls
